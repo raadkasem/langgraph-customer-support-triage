@@ -47,13 +47,20 @@ langgraph-customer-support-triage/
 
 ## 🚀 Setup Instructions
 
-### 1. Install Dependencies
+### 1. Create Virtual Environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configure Environment
+### 3. Configure Environment
 
 Copy the environment template and add your OpenAI API key:
 
@@ -66,7 +73,7 @@ Edit `.env` and add your OpenAI API key:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 3. Run the System
+### 4. Run the System
 
 ```bash
 python main.py
