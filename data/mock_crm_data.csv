@@ -1,0 +1,11 @@
+customer_id,name,email,account_status,last_purchase_date,subscription_tier
+CUST001,Alice Johnson,alice.johnson@email.com,active,2024-01-15,premium
+CUST002,Bob Smith,bob.smith@email.com,active,2024-01-20,basic
+CUST003,Carol Davis,carol.davis@email.com,suspended,2023-12-05,premium
+CUST004,David Wilson,david.wilson@email.com,active,2024-01-18,basic
+CUST005,Emma Brown,emma.brown@email.com,active,2024-01-22,enterprise
+CUST006,Frank Miller,frank.miller@email.com,inactive,2023-11-30,basic
+CUST007,Grace Lee,grace.lee@email.com,active,2024-01-25,premium
+CUST008,Henry Taylor,henry.taylor@email.com,active,2024-01-12,basic
+CUST009,Iris Chen,iris.chen@email.com,active,2024-01-28,premium
+CUST010,Jack Anderson,jack.anderson@email.com,active,2024-01-14,enterprise
