@@ -82,7 +82,7 @@ Respond with a JSON-like format:
                 HumanMessage(content=f"Category: {category}\nQuery: {query}")
             ]
             
-            response = self.llm(messages)
+            response = self.llm.invoke(messages)
             
             # Simple parsing - in production, use proper JSON parsing
             content = response.content.lower()

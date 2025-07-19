@@ -2,7 +2,7 @@ import os
 from typing import List
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_community.vectorstores import FAISS
-from langchain.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.tools import Tool
@@ -41,7 +41,7 @@ class RAGTool:
     def search_knowledge_base(self, query: str) -> str:
         """Search the knowledge base for relevant information."""
         try:
-            result = self.qa_chain.run(query)
+            result = self.qa_chain.invoke({"query": query})["result"]
             return result
         except Exception as e:
             return f"Error searching knowledge base: {str(e)}"

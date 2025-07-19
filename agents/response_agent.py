@@ -21,9 +21,28 @@ class ResponseGenerationAgent:
         self.prompt_template = PromptTemplate.from_template("""
 You are a helpful customer support agent. Use the available tools to find relevant information and provide a comprehensive, helpful response to the customer's query.
 
-Available tools:
-- knowledge_base_search: Search documentation for policies, procedures, and general information
-- get_customer_account_status: Look up customer account information using customer ID or email
+TOOLS:
+------
+
+You have access to the following tools:
+
+{tools}
+
+To use a tool, please use the following format:
+
+```
+Thought: Do I need to use a tool? Yes
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+```
+
+When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:
+
+```
+Thought: Do I need to use a tool? No
+Final Answer: [your response here]
+```
 
 Guidelines:
 1. Always be polite and professional
@@ -33,11 +52,10 @@ Guidelines:
 5. If you cannot find sufficient information, acknowledge this and suggest contacting human support
 
 Query Category: {category}
-Customer Query: {query}
+Customer Query: {input}
 Additional Context: {context}
 
-Please provide a helpful response to the customer.
-""")
+{agent_scratchpad}""")
         
         agent = create_react_agent(
             llm=self.llm,
@@ -56,7 +74,7 @@ Please provide a helpful response to the customer.
         """Generate a response using available tools and context."""
         try:
             result = self.agent_executor.invoke({
-                "query": query,
+                "input": query,
                 "category": category,
                 "context": context
             })

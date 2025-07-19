@@ -36,7 +36,7 @@ Examples:
                 HumanMessage(content=f"Classify this query: {query}")
             ]
             
-            response = self.llm(messages)
+            response = self.llm.invoke(messages)
             classification = response.content.strip().lower()
             
             valid_categories = ["billing", "technical", "shipping", "returns", "product", "general", "escalate"]
